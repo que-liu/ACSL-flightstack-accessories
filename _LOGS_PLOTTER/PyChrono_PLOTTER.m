@@ -13,21 +13,22 @@ set(groot, 'defaultAxesFontSize', 20);
 
 % Generate a path string including all subdirectories of plot_functions
 addpath(genpath('.\plot_functions'));
+addpath(genpath('.\functions'));
 addpath(genpath('.\pychrono'));
 
 % ==============================================================================
 % Define the folder name 
-pp.folder_name = '20251002';  
+pp.folder_name = '20251211';  
 
 % Define the controller folder name
-pp.folder_controller = 'HybridTwoLayerMRAC';
+pp.folder_controller = 'MRAC';
 
 % Define the workspace filename
-pp.workspace_filename = 'workspace_log_20251002_105742.mat';
+pp.workspace_filename = 'workspace_log_20251211_114054.mat';
 
 % Set flag to true to automatically load the most recent workspace
 % contained in pp.folder_name
-pp.auto_load_last_workspace = true;
+pp.auto_load_last_workspace = false;
 % ==============================================================================
 
 % Load the workspace
@@ -39,7 +40,7 @@ pp.font_size_title = 22;
 
 pp.x_lim_min = 0;
 % pp.x_lim_min = 10;
-% pp.x_lim_max = 8.2;
+% pp.x_lim_max = 21.5;
 pp.x_lim_max = log.time(end);
 
 % Compute derived values from log
@@ -122,6 +123,9 @@ plotOUTLnormTrackingError(log, der, pp);
 
 %% Plot INNER LOOP norm of tracking error
 plotINNLnormTrackingError(log, der, pp);
+
+%% Plot OUTER LOOP L2-norm of tracking error
+plotOUTLnormL2TrackingError(log, der, pp);
 
 %% Plot OUTER LOOP norm of tracking error wrt User-Defined Trajectory
 plotOUTLnormTrackingErrorUserDefTraj(log, der, pp);

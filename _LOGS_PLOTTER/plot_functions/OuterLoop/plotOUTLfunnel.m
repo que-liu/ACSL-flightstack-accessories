@@ -56,7 +56,7 @@ if isfield(log.outer_loop.funnel, 'H_function')
 end
 if isfield(der.outer_loop.funnel, 'diameter')
     plot(log.time, der.outer_loop.funnel.diameter, ':', 'Color', colors.diameter_der, 'LineWidth', 2.3)
-    legend_entries{end+1} = 'Funnel Diameter der';
+    legend_entries{end+1} = 'Funnel diameter der';
 end
 if isfield(der.outer_loop.funnel, 'eMe')
     plot(log.time, der.outer_loop.funnel.eMe, '--', 'Color', colors.eMe_der, 'LineWidth', 1.8)
@@ -65,7 +65,7 @@ end
 
 if isfield(log.outer_loop.funnel, 'diameter')
     plot(log.time, log.outer_loop.funnel.diameter, '--', 'Color', colors.diameter, 'LineWidth', 2.3)
-    legend_entries{end+1} = 'Funnel Diameter';
+    legend_entries{end+1} = 'Funnel diameter';
 end
 if isfield(log.outer_loop.funnel, 'eT_M_e')
     plot(log.time, log.outer_loop.funnel.eT_M_e, '-.', 'Color', colors.eT_M_e, 'LineWidth', 1.8)
@@ -88,15 +88,17 @@ if isfield(gains, 'e_min_funnel_tran')
     legend_entries{end+1} = '$e_{\min}$';
 end
 % Plot horizontal line for e_min
-if isfield(gains.ADAPTIVE, 'e_min_funnel_translational')
-    yline(gains.ADAPTIVE.e_min_funnel_translational, '-', ...
+if isfield(gains, 'ADAPTIVE') && ...
+   isfield(gains.ADAPTIVE, 'e_min_funnel_translational')
+
+  yline(gains.ADAPTIVE.e_min_funnel_translational, '-', ...
         'Color', [0.3, 0.3, 0.3], 'LineWidth', 2.0, 'LineStyle', '-.')
-    legend_entries{end+1} = '$e_{\min}$';
+  legend_entries{end+1} = '$e_{\min}$';
 end
 
 legend(legend_entries, 'interpreter', 'latex', 'fontsize', pp.font_size, 'Location', 'best')
 xlabel('$t$ [s]', 'interpreter', 'latex', 'fontsize', pp.font_size)
-ylabel('Outer loop Funnel variables [-]', 'interpreter', 'latex', 'fontsize', pp.font_size)
+ylabel('Outer loop funnel variables [-]', 'interpreter', 'latex', 'fontsize', pp.font_size)
 title(pp.folder_controller, 'interpreter', 'latex', 'fontsize', pp.font_size_title)
 axis tight
 xlim([pp.x_lim_min, pp.x_lim_max])

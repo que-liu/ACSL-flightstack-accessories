@@ -14,7 +14,9 @@ for ii = 1:length(log.time)
     der.outer_loop.tracking_error_norm(ii,1) = norm(der.outer_loop.tracking_error(ii));
 end
 
-
+% OUTER LOOP L2 norm
+der.outer_loop.tracking_error_L2norm = ...
+  computeL2norm(log.time, der.outer_loop.tracking_error_norm, 0);
 
 
 
