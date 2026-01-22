@@ -39,5 +39,9 @@ end
     der.outer_loop.tracking_error_L2norm = ...
       computeL2norm(log.time, der.outer_loop.tracking_error_norm, 0);
 
+    % INNER LOOP L2 norm
+    der.inner_loop.tracking_error_L2norm = ...
+      computeL2norm(log.time, der.inner_loop.tracking_error_norm, 0);
+
 end
 

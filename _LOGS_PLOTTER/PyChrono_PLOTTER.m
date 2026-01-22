@@ -70,6 +70,9 @@ plotVelocity(log, der, pp);
 %% Plot Euler angles vs time
 plotEulerAngles(log, der, pp);
 
+%% Plot Euler angle errors vs time
+plotEulerAngleErrors(log, der, pp);
+
 %% Plot angles derivatives vs time
 plotAngularRates(log, der, pp);
 
@@ -126,6 +129,9 @@ plotINNLnormTrackingError(log, der, pp);
 
 %% Plot OUTER LOOP L2-norm of tracking error
 plotOUTLnormL2TrackingError(log, der, pp);
+
+%% Plot INNER LOOP L2-norm of tracking error
+plotINNLnormL2TrackingError(log, der, pp);
 
 %% Plot OUTER LOOP norm of tracking error wrt User-Defined Trajectory
 plotOUTLnormTrackingErrorUserDefTraj(log, der, pp);
